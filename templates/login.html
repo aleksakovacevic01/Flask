@@ -1,0 +1,35 @@
+ {% extends "base.html" %}
+{% block title %}Login Paqe{% endblock %}
+
+{% block content %}
+
+    <p>Name:</p>
+    <input type="text" name="nm" id="input"/>
+    <select id="prioritet">
+      <option value="visok">visok</option>
+      <option value="srednji">srednji</option>
+      <option value="niski">Niski</option>
+    </select>
+    <input type="submit" value="submit" onclick="input_value()"/>
+        
+      <select id="filter">
+        <option value="sve">sve</option>
+        <option value="visok">visok</option>
+        <option value="srednji">srednji</option>
+        <option value="niski">Niski</option>
+      </select>
+      <button onclick="filter()">Filter</button>
+      <select id="sortiranje">
+        <option value="rastuci">rastuci</option>
+        <option value="opadajuci">opadajuci</option>
+      </select>
+      <button onclick="sortiranje()">Sortiranje</button>
+    
+    {%for item in data%}
+    <h1>{{item}}</h1>
+    <button id="{{item[0]}}" onclick="deleteFile(this.id)">Delete</button>
+    {%endfor%}
+    
+      
+
+{% endblock%}
